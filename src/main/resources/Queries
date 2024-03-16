@@ -1,0 +1,14 @@
+use javaguides
+DELIMITER //
+CREATE PROCEDURE `get_books_by_author'(in auth varchar(20))
+BEGIN
+select * from book where author=auth;
+END; 
+
+CREATE PROCEDURE `get_count_of_books'(in auth varchar(20),out total int)
+BEGIN
+select count(*) into total from book where author=auth;
+END; 
+//
+call get_books_by_author('Robin');
+call get_count_of_books('Robin');
